@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>[Your Name] – Portfolio</title>
+  <meta name="description" content="Portfolio of [Your Name]: Bioinformatics, Data Analysis, and Software Projects" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-3h1rG8k0K5o2mF6mSxqf9yTjF1M4XnO6K2xR8O6l4gWwQD2mNn8hFq6o0n9p9q6B2GzYFJk3m2bCwqH8X5h0wQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --bg: #0f172a; /* slate-900 */
+      --card: #111827; /* gray-900 */
+      --muted: #94a3b8; /* slate-400 */
+      --text: #e5e7eb; /* gray-200 */
+      --accent: #22d3ee; /* cyan-400 */
+      --accent-2: #a78bfa; /* violet-400 */
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, #0b1220 0%, var(--bg) 60%);
+      color: var(--text);
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 24px; }
+
+    /* Header */
+    header { position: sticky; top: 0; backdrop-filter: blur(6px); background: rgba(15, 23, 42, 0.6); border-bottom: 1px solid rgba(255,255,255,0.06); z-index: 10; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 24px; }
+    .brand { font-weight: 800; letter-spacing: 0.3px; }
+    .nav-links a { margin: 0 10px; color: var(--muted); font-weight: 600; }
+    .nav-links a:hover { color: white; }
+
+    /* Hero */
+    .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; align-items: center; padding: 56px 24px 24px; }
+    .badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 999px; background: rgba(34, 211, 238, 0.12); color: var(--accent); font-weight: 700; font-size: 12px; letter-spacing: 0.4px; }
+    h1 { font-size: clamp(28px, 4.2vw, 44px); margin: 14px 0 8px; line-height: 1.15; }
+    .subtitle { color: var(--muted); font-size: 16px; line-height: 1.7; }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+    .btn { padding: 12px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.12); background: #1f2937; color: white; font-weight: 700; transition: transform 0.15s ease, box-shadow 0.2s; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,0.35); }
+    .btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); border: none; color: #0b1220; }
+
+    .card { background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.06); border-radius: 18px; padding: 18px; }
+
+    /* Sections */
+    section { padding: 24px; }
+    .section-title { font-size: 22px; margin: 0 0 10px; }
+    .muted { color: var(--muted); }
+
+    /* Projects */
+    .projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .project { display: grid; gap: 10px; }
+    .project img { width: 100%; height: 160px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); }
+    .project h3 { margin: 6px 0 0; font-size: 16px; }
+    .project p { margin: 0; font-size: 14px; color: var(--muted); }
+
+    /* Skills */
+    .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .chip { padding: 10px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.08); background: #0f172a; font-weight: 600; text-align: center; }
+
+    /* Timeline */
+    .timeline { display: grid; gap: 14px; }
+    .timeline-item { display: grid; gap: 6px; padding: 14px; border-left: 3px solid var(--accent); background: rgba(255,255,255,0.03); border-radius: 12px; }
+    .timeline-item small { color: var(--muted); }
+
+    /* Footer */
+    footer { text-align: center; color: var(--muted); padding: 24px; border-top: 1px solid rgba(255,255,255,0.08); }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .projects { grid-template-columns: 1fr 1fr; }
+      .skills { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .projects, .skills { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav container">
+      <div class="brand">[Alhassan Ahmed]</div>
+      <nav class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="badge"><i class="fa-solid fa-flask"></i> Bioinformatics • Data • Software</span>
+        <h1>Hi, I'm Alhassan Ahmed. I turn biological data into insights.</h1>
+        <p class="subtitle">Biotechnology student (Class of 2026) focused on bioinformatics, data analysis, and reproducible research. Comfortable with Python/R, statistics, and building clean visualizations and pipelines.</p>
+        <div class="cta">
+          <a class="btn primary" href="assets/CV.pdf" target="_blank"><i class="fa-solid fa-file"></i> View CV</a>
+          <a class="btn" href="https://github.com/Alhassan37" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/aasho" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a class="btn" href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="margin:8px 0 6px;">Featured Snapshot</h3>
+        <ul class="muted" style="margin:0 0 6px 18px;">
+          <li>RNA-seq pipeline (FastQC → STAR → DESeq2)</li>
+          <li>Protein motif discovery with MEME Suite</li>
+          <li>Microbial community analysis (QIIME2)</li>
+        </ul>
+        <small class="muted">Replace with your highlights.</small>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+      <p class="muted" style="margin-top:-6px;">A few recent works. Each card can link to GitHub repo or a demo.</p>
+      <div class="projects">
+        <article class="project card">
+          <img src="assets/project-1.jpg" alt="Project 1 thumbnail" />
+          <h3>Microbial Protein Production</h3>
+          <p>Reproducible analysis and visualization of fermentation data with Python and R.</p>
+          <a class="btn" href="#" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View</a>
+        </article>
+        <article class="project card">
+          <img src="assets/project-2.jpg" alt="Project 2 thumbnail" />
+          <h3>Genome Browser Track</h3>
+          <p>Built a UCSC custom track with annotated SNPs and gene features.</p>
+          <a class="btn" href="#" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View</a>
+        </article>
+        <article class="project card">
+          <img src="assets/project-3.jpg" alt="Project 3 thumbnail" />
+          <h3>Phylogenetic Trees</h3>
+          <p>Multiple sequence alignment and tree building (Clustal Omega → IQ-TREE).</p>
+          <a class="btn" href="#" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills">
+        <div class="chip">Python (pandas, Biopython)</div>
+        <div class="chip">R (tidyverse, ggplot2)</div>
+        <div class="chip">Bash & Git</div>
+        <div class="chip">NCBI, EMBL-EBI, KEGG</div>
+        <div class="chip">Primer Design</div>
+        <div class="chip">Docker & Reproducibility</div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2 class="section-title">Experience & Education</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <strong>Biotechnology, Menofia University</strong>
+          <small>2022 – 2026</small>
+          <div class="muted">Coursework: Genetic Engineering, Fermentation Chemistry, Environmental Pollutants, Regulatory Chemistry.</div>
+        </div>
+        <div class="timeline-item">
+          <strong>Bioinformatics Training & Projects</strong>
+          <small>2024 – Present</small>
+          <div class="muted">NCBI & EMBL databases, Galaxy workflows, KEGG pathway analysis, SnapGene maps.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <p class="muted">I’m open to internships, research collaborations, and remote bioinformatics work.</p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:alhassan4work@gmail.com"><i class="fa-solid fa-envelope"></i> Email Me</a>
+        <a class="btn" href="https://wa.me/201273390881" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> alhassan ahmed. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
